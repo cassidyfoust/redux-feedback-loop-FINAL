@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux';
 import { Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 const theme = createMuiTheme({
@@ -15,11 +16,21 @@ const theme = createMuiTheme({
 
 class Understanding extends Component {
 
+    state = {
+        understanding: 0
+    }
+
     handleClick = () => {
-        console.log('clicked next!')
+        console.log('clicked next!', this.state)
+        this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
         this.props.history.push('/support')
     }
 
+    handleChange = (event) => {
+        this.setState({
+            understanding: event.target.value
+        })
+    }
     render() {
         return (
             <>
@@ -50,4 +61,4 @@ class Understanding extends Component {
         )
     };
 }
-export default Understanding;
+export default connect()(Understanding);

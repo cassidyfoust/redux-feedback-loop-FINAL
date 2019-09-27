@@ -31,7 +31,7 @@ class Review extends Component {
                        Feelings: {this.props.reduxStore.feedbackReducer.feeling}
                        <br></br>
                        <br></br>
-                       Understanding:
+                        Understanding: {this.props.reduxStore.feedbackReducer.understanding}
                        <br></br>
                        <br></br>
                        Support:

@@ -15,11 +15,21 @@ const theme = createMuiTheme({
 
 class Support extends Component {
 
+    state = {
+        support: 0
+    }
+
     handleClick = () => {
-        console.log('clicked next!')
+        console.log('clicked next!', this.state)
+        this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state.support })
         this.props.history.push('/comments')
     }
 
+    handleChange = (event) => {
+        this.setState({
+            support: event.target.value
+        })
+    }
     render() {
         return (
             <>
@@ -32,7 +42,7 @@ class Support extends Component {
                             id="standard-number"
                             label="Support?"
                             // value={values.age}
-                            // onChange={handleChange('age')}
+                            onChange={(event) => this.handleChange(event)}
                             type="number"
                             // className={classes.textField}
                             InputLabelProps={{

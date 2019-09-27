@@ -43,7 +43,7 @@ class Understanding extends Component {
                             id="standard-number"
                             label="Understanding?"
                             // value={values.age}
-                            // onChange={handleChange('age')}
+                            onChange={(event) => this.handleChange(event)}
                             type="number"
                             // className={classes.textField}
                             InputLabelProps={{

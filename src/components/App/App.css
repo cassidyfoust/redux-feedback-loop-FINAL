@@ -17,3 +17,19 @@
   font-size: large;
 }
 
+.component {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.summary {
+  text-align: center;
+  padding: 20px;
+}
+
+.btn {
+  height: 40px;
+  align-self: flex-end;
+}
+

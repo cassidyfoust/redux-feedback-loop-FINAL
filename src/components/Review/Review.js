@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux';
 import { Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 const theme = createMuiTheme({
@@ -28,7 +28,7 @@ class Review extends Component {
                         <h2>Review Your Feedback</h2>
                     </div>
                     <div className="summary">
-                       Feelings:
+                       Feelings: {this.props.reduxStore.feedbackReducer.feelings}
                        <br></br>
                        <br></br>
                        Understanding:
@@ -49,4 +49,8 @@ class Review extends Component {
         )
     };
 }
-export default Review;
+const mapStateToProps = (reduxStore) => ({
+    reduxStore
+})
+
+export default connect(mapStateToProps)(Review);

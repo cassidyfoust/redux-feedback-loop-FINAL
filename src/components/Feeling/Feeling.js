@@ -15,9 +15,21 @@ const theme = createMuiTheme ({
 
 class Feeling extends Component {
 
+    state = {
+        feeling: 0
+    }
+
     handleClick = () => {
-        console.log('clicked next!')
+        console.log('clicked next!', this.state)
+        this.props.dispatch({type: 'ADD_FEELING', payload: this.state.feeling})
         this.props.history.push('/understanding')
+    }
+
+    handleChange = (event) => {
+        console.log (event.target.value)
+        this.setState({
+            feeling: event.target.value
+        })
     }
 
     render() {
@@ -32,9 +44,8 @@ class Feeling extends Component {
                     id="standard-number"
                     label="Feeling?"
                     // value={values.age}
-                    // onChange={handleChange('age')}
+                    onChange={(event) => this.handleChange(event)}
                     type="number"
-                    // className={classes.textField}
                     InputLabelProps={{
                         shrink: true,
                     }}

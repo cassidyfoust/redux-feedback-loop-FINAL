@@ -13,24 +13,24 @@ const feedbackReducer = (state = {
     comments: ''
 }, action) => {
     if (action.type === 'ADD_FEELING') {
-        state = {...this.state,
+        state = {...state,
         feeling: action.payload}
     }
     else if (action.type === 'ADD_UNDERSTANDING') {
         state = {
-            ...this.state,
+            ...state,
             understanding: action.payload
         }
     }
     else if (action.type === 'ADD_SUPPORT') {
         state = {
-            ...this.state,
+            ...state,
             support: action.payload
         }
     }
     else if (action.type === 'ADD_COMMENTS') {
         state = {
-            ...this.state,
+            ...state,
             comments: action.payload
         }
     }

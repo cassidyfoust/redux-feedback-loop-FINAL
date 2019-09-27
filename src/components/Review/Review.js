@@ -28,7 +28,7 @@ class Review extends Component {
                         <h2>Review Your Feedback</h2>
                     </div>
                     <div className="summary">
-                       Feelings: {this.props.reduxStore.feedbackReducer.feelings}
+                       Feelings: {this.props.reduxStore.feedbackReducer.feeling}
                        <br></br>
                        <br></br>
                        Understanding:

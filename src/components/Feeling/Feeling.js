@@ -17,19 +17,23 @@ const theme = createMuiTheme ({
 class Feeling extends Component {
 
     state = {
-        feeling: 0
+        feeling: ''
     }
 
     handleClick = () => {
-        console.log('clicked next!', this.state)
-        this.props.dispatch({type: 'ADD_FEELING', payload: this.state.feeling})
-        this.props.history.push('/understanding')
+        console.log(this.state)
+        if (this.state.feeling === ''){
+            alert('You must evaluate your feelings.')
+        }
+        else {
+            this.props.dispatch({ type: 'ADD_FEELING', payload: this.state })
+            this.props.history.push('/understanding')
+        }
     }
 
     handleChange = (event) => {
-        this.setState({
-            feeling: event.target.value
-        })
+            this.setState({
+                feeling: event.target.value})
     }
 
     render() {

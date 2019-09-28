@@ -21,9 +21,12 @@ class Comments extends Component {
     }
 
     handleClick = () => {
-        console.log('clicked next!', this.state)
+        if (this.state.comments === ''){
+            alert('You must fill out the comments field.')
+        }
+        else {
         this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
-        this.props.history.push('/review')
+        this.props.history.push('/review')}
     }
 
     handleChange = (event) => {

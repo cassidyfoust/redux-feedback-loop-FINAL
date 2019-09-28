@@ -1,6 +1,5 @@
 # TO DO FOR CASS:
 - update readme
-- allow user to update score
 - 
 
 # Redux Feedback Loop

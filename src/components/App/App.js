@@ -8,6 +8,7 @@ import Support from '../Support/Support';
 import Review from '../Review/Review';
 import Comments from '../Comments/Comments';
 import Submit from '../Submit/Submit';
+import Admin from '../Admin/Admin';
 
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
         <Route path="/comments" component={Comments} />
         <Route path="/review" component={Review} />
         <Route path="/submit" component={Submit} />
+        <Route path="/admin" component={Admin} />
       </Router>
     );
   }

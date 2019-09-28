@@ -11,22 +11,24 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 
-// // GET all orders that have been placed, populate with data from the pizza collection
-// router.get('/', (req, res) => {
-//     // Find all orders and return them
-//     pool.query('SELECT * FROM "orders";').then((result) => {
-//         res.send(result.rows);
-//     }).catch((error) => {
-//         console.log('Error GET /api/order', error);
-//         res.sendStatus(500);
-//     });
-// })
+app.get('/admin', (req, res) => {
+    // Get all of the feedback from the database
+    const sqlText = `SELECT * FROM "feedback";`;
+    pool.query(sqlText)
+        .then((result) => {
+            res.send(result.rows);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        });
+});
 
 // POST new feedback
 app.post('/', (req, res) => {
     let newFeedback = req.body;
     let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-    VALUES ($1, $2, $3, $4)`
+    VALUES ($1, $2, $3, $4);`
     pool.query(queryText, [newFeedback.feeling, newFeedback.understanding, newFeedback.support, newFeedback.comments])
             .then(result => {
                 res.sendStatus(201);

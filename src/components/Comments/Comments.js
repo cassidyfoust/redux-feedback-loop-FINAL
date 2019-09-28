@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux';
 import { Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 const theme = createMuiTheme({
@@ -15,9 +16,20 @@ const theme = createMuiTheme({
 
 class Comments extends Component {
 
+    state = {
+        comments: ''
+    }
+
     handleClick = () => {
-        console.log('clicked next!')
+        console.log('clicked next!', this.state)
+        this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
         this.props.history.push('/review')
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            support: event.target.value
+        })
     }
 
     render() {
@@ -29,17 +41,12 @@ class Comments extends Component {
                     </div>
                     <div className="component">
                         <TextField
-                            id="standard-number"
-                            label="Comments"
-                            // value={values.age}
-                            // onChange={handleChange('age')}
-                            type="number"
-                            // className={classes.textField}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
+                            required
+                            id="standard-required"
+                            label="Comments?"
+                            defaultValue=" "
+                            onChange={(event) => this.handleChange(event)}
                             margin="normal"
-                            required={true}
                         />
                         <Button className="btn" variant="contained" color="primary" onClick={this.handleClick}>
                             Next
@@ -50,4 +57,4 @@ class Comments extends Component {
         )
     };
 }
-export default Comments;
+export default connect()(Comments);

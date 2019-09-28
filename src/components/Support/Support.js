@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux';
 import { Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 const theme = createMuiTheme({
@@ -60,4 +61,4 @@ class Support extends Component {
         )
     };
 }
-export default Support;
+export default connect()(Support);

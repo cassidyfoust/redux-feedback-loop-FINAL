@@ -32,7 +32,9 @@
 th {
   background-color: #b6d0fa;
 }
+
 tr:nth-child(even) {background: #e8f1ff}
+
 tr:nth-child(odd) {background: #FFF}
 
 .summary {

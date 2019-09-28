@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { IconButton} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import DeleteIcon from '@material-ui/icons/Delete'
 import axios from 'axios';
 
-const theme = createMuiTheme({
-    overrides: {
-        MuiButton: {
-            root: {
-                margin: "120px",
-                padding: "10px"
-            }
-        }
-    }
-});
+const useStyles = makeStyles(theme => ({
+    button: {
+        margin: theme.spacing(1),
+    },
+    input: {
+        display: 'none',
+    },
+}));
 
 class Admin extends Component {
 
@@ -25,6 +25,9 @@ class Admin extends Component {
     }
 
     getFeedback = () => {
+        this.setState({
+            responses: []
+        })
         axios.get('/admin')
             .then((response) => {
                 console.log(response.data)
@@ -38,10 +41,19 @@ class Admin extends Component {
             })
     }
 
+    handleDelete = (id) => {
+        axios.delete(`/admin/${id}`)
+            .then((response) => {
+                console.log(response);
+                this.getFeedback()
+            }).catch((error) => {
+                console.log('this is the error:', error)
+            })
+    }
+
     render() {
         return (
             <>
-                <MuiThemeProvider theme={theme}>
                     <div className="component">
                         <h2>Feedback Results:</h2>
                     </div>
@@ -61,13 +73,13 @@ class Admin extends Component {
                                         <td>{response.understanding}</td>
                                         <td>{response.support}</td>
                                         <td>{response.comments}</td>
-                                        <td>Delete Button TK</td>
+                                        <td> <IconButton onClick={(event) => this.handleDelete(response.id)}>
+                                            <DeleteIcon /></IconButton></td>
                                     </tr>
                                 })}
                             </tbody>
                         </table>
                     </div>
-                </MuiThemeProvider>
             </>
         )
 }

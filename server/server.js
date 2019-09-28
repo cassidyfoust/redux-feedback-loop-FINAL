@@ -40,14 +40,14 @@ app.post('/', (req, res) => {
     });
 
 // DELETE feedback
-// router.delete('/:id', (req, res) => {
-//     pool.query('DELETE FROM "orders" WHERE id=$1', [req.params.id]).then((result) => {
-//         res.sendStatus(200);
-//     }).catch((error) => {
-//         console.log('Error DELETE /api/order', error);
-//         res.sendStatus(500);
-//     })
-// });
+app.delete('/admin/:id', (req, res) => {
+    pool.query('DELETE FROM "feedback" WHERE id=$1', [req.params.id]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Error DELETE', error);
+        res.sendStatus(500);
+    })
+});
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

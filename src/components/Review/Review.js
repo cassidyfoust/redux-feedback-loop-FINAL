@@ -37,7 +37,7 @@ class Review extends Component {
                         Support: {this.props.reduxStore.feedbackReducer.support}
                        <br></br>
                         <br></br>
-                        Comments:
+                        Comments: {this.props.reduxStore.feedbackReducer.comments}
                         </div>
                         <div className="component">
                         <Button className="btn" variant="contained" color="primary" onClick={this.handleClick}>

@@ -1,5 +1,4 @@
 # TO DO FOR CASS:
-- add error message if user attempts to submit blank fields
 - post to database on submit
 
 # Redux Feedback Loop

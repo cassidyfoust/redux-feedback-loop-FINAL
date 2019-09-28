@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import axios from 'axios';
 
 const theme = createMuiTheme({
     overrides: {
@@ -16,9 +17,16 @@ const theme = createMuiTheme({
 class Review extends Component {
 
     handleClick = () => {
-        console.log('clicked next!')
-        this.props.history.push('/submit')
-    }
+            let feedbackToSend = this.props.reduxStore.feedbackReducer
+            axios.post('/', feedbackToSend)
+                .then(response => {
+                    console.log('posted to feedback database', feedbackToSend)
+                    this.props.history.push('/submit')
+                }).catch(error => {
+                    console.log('error in posting the order', error)
+                })
+
+        }
 
     render() {
         return (

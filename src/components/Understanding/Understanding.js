@@ -17,13 +17,17 @@ const theme = createMuiTheme({
 class Understanding extends Component {
 
     state = {
-        understanding: 0
+        understanding: ''
     }
 
     handleClick = () => {
-        console.log('clicked next!', this.state)
-        this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
-        this.props.history.push('/support')
+        if (this.state.understanding === '') {
+            alert('You must evaluate your understanding.')
+        }
+        else {
+            this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
+            this.props.history.push('/support')
+        }
     }
 
     handleChange = (event) => {

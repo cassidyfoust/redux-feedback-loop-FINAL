@@ -26,7 +26,7 @@ class Feeling extends Component {
             alert('You must evaluate your feelings.')
         }
         else {
-            this.props.dispatch({ type: 'ADD_FEELING', payload: this.state })
+            this.props.dispatch({ type: 'ADD_FEELING', payload: this.state.feeling })
             this.props.history.push('/understanding')
         }
     }

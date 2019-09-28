@@ -47,7 +47,7 @@ class Comments extends Component {
                             required
                             id="standard-required"
                             label="Comments?"
-                            defaultValue=" "
+                            defaultValue=""
                             onChange={(event) => this.handleChange(event)}
                             margin="normal"
                         />

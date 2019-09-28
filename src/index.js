@@ -7,10 +7,10 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 const feedbackReducer = (state = {
-    feeling: 0,
-    understanding: 0,
-    support: 0,
-    comments: ''
+    // feeling: 0,
+    // understanding: 0,
+    // support: 0,
+    // comments: ''
 }, action) => {
     if (action.type === 'ADD_FEELING') {
         state = {...state,

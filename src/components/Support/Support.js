@@ -17,13 +17,17 @@ const theme = createMuiTheme({
 class Support extends Component {
 
     state = {
-        support: 0
+        support: ''
     }
 
     handleClick = () => {
-        console.log('clicked next!', this.state)
-        this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state.support })
-        this.props.history.push('/comments')
+        if (this.state.support === '') {
+            alert('You must evaluate the support.')
+        }
+        else {
+            this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state.support })
+            this.props.history.push('/comments')
+        }
     }
 
     handleChange = (event) => {

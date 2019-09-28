@@ -23,6 +23,18 @@
   /* flex-direction: column; */
 }
 
+.feedback-table, tr, td, th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+th {
+  background-color: #b6d0fa;
+}
+tr:nth-child(even) {background: #e8f1ff}
+tr:nth-child(odd) {background: #FFF}
+
 .summary {
   text-align: center;
   padding: 20px;

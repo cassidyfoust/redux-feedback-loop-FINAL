@@ -46,10 +46,17 @@ class Admin extends Component {
                         <h2>Feedback Results:</h2>
                     </div>
                     <div className="component">
-                        <table>
+                        <table className="feedback-table">
+                            <thead>
+                                <th>Feeling</th>
+                                <th>Comprehension</th>
+                                <th>Support</th>
+                                <th>Comments</th>
+                                <th>Delete</th>
+                            </thead>
                             <tbody>
                                 {this.state.responses.map((response) => {
-                                    return <tr>
+                                    return <tr key={response.id}>
                                         <td>{response.feeling}</td>
                                         <td>{response.understanding}</td>
                                         <td>{response.support}</td>

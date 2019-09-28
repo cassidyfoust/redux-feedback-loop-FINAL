@@ -7,7 +7,7 @@ const theme = createMuiTheme({
     overrides: {
         MuiButton: {
             root: {
-                margin: "10px",
+                margin: "120px",
                 padding: "10px"
             }
         }
@@ -27,6 +27,11 @@ class Review extends Component {
                 })
 
         }
+    
+    handleClickBack = () => {
+        this.props.history.push('/comments')
+    }
+
 
     render() {
         return (
@@ -48,6 +53,9 @@ class Review extends Component {
                          Comments: {this.props.reduxStore.feedbackReducer.comments}
                         </div>
                         <div className="component">
+                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClickBack}>
+                            Back
+                    </Button>
                         <Button className="btn" variant="contained" color="primary" onClick={this.handleClick}>
                             Submit
                     </Button>

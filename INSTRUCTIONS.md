@@ -1,5 +1,7 @@
 # TO DO FOR CASS:
-- post to database on submit
+- update readme
+- allow user to update score
+- 
 
 # Redux Feedback Loop
 

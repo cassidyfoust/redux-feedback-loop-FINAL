@@ -7,7 +7,7 @@ const theme = createMuiTheme({
     overrides: {
         MuiButton: {
             root: {
-                margin: "10px",
+                margin: "120px",
                 padding: "10px"
             }
         }
@@ -20,7 +20,7 @@ class Understanding extends Component {
         understanding: ''
     }
 
-    handleClick = () => {
+    handleClickNext = () => {
         if (this.state.understanding === '') {
             alert('You must evaluate your understanding.')
         }
@@ -28,6 +28,10 @@ class Understanding extends Component {
             this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
             this.props.history.push('/support')
         }
+    }
+
+    handleClickBack = () => {
+        this.props.history.push('/')
     }
 
     handleChange = (event) => {
@@ -56,10 +60,15 @@ class Understanding extends Component {
                             margin="normal"
                             required={true}
                         />
-                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClick}>
+                        </div>
+                        <div className="component">
+                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClickBack}>
+                            Back
+                    </Button>
+                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClickNext}>
                             Next
                     </Button>
-                    </div>
+                        </div>
                 </MuiThemeProvider>
             </>
         )

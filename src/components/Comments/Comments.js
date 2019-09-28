@@ -7,7 +7,7 @@ const theme = createMuiTheme({
     overrides: {
         MuiButton: {
             root: {
-                margin: "10px",
+                margin: "120px",
                 padding: "10px"
             }
         }
@@ -20,7 +20,7 @@ class Comments extends Component {
         comments: ''
     }
 
-    handleClick = () => {
+    handleClickNext = () => {
         if (this.state.comments === ''){
             alert('You must fill out the comments field.')
         }
@@ -28,6 +28,11 @@ class Comments extends Component {
         this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
         this.props.history.push('/review')}
     }
+
+    handleClickBack = () => {
+        this.props.history.push('/support')
+    }
+
 
     handleChange = (event) => {
         this.setState({
@@ -50,8 +55,11 @@ class Comments extends Component {
                             defaultValue=""
                             onChange={(event) => this.handleChange(event)}
                             margin="normal"
-                        />
-                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClick}>
+                        /></div><div className="component">
+                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClickBack}>
+                            Back
+                    </Button>
+                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClickNext}>
                             Next
                     </Button>
                     </div>

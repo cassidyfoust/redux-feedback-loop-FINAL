@@ -3,11 +3,11 @@ import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { Button, createMuiTheme , MuiThemeProvider} from '@material-ui/core';
 
-const theme = createMuiTheme ({
+const theme = createMuiTheme({
     overrides: {
         MuiButton: {
             root: {
-                margin: "10px",
+                margin: "120px",
                 padding: "10px"
             }
         }
@@ -47,7 +47,6 @@ class Feeling extends Component {
                 <TextField
                     id="standard-number"
                     label="Feeling?"
-                    // value={values.age}
                     onChange={(event) => this.handleChange(event)}
                     type="number"
                     InputLabelProps={{
@@ -56,6 +55,8 @@ class Feeling extends Component {
                     margin="normal"
                     required={true}
                 />
+                </div>
+                <div className="component">
                     <Button className="btn" variant="contained" color="primary" onClick={this.handleClick}>
                         Next
                     </Button>

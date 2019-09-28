@@ -7,7 +7,7 @@ const theme = createMuiTheme({
     overrides: {
         MuiButton: {
             root: {
-                margin: "10px",
+                margin: "120px",
                 padding: "10px"
             }
         }
@@ -20,7 +20,7 @@ class Support extends Component {
         support: ''
     }
 
-    handleClick = () => {
+    handleClickNext = () => {
         if (this.state.support === '') {
             alert('You must evaluate the support.')
         }
@@ -28,6 +28,10 @@ class Support extends Component {
             this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state.support })
             this.props.history.push('/comments')
         }
+    }
+
+    handleClickBack = () => {
+        this.props.history.push('/understanding')
     }
 
     handleChange = (event) => {
@@ -55,8 +59,11 @@ class Support extends Component {
                             }}
                             margin="normal"
                             required={true}
-                        />
-                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClick}>
+                        /></div><div className="component">
+                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClickBack}>
+                            Back
+                    </Button>
+                        <Button className="btn" variant="contained" color="primary" onClick={this.handleClickNext}>
                             Next
                     </Button>
                     </div>

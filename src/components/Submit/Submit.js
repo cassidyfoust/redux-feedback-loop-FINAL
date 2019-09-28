@@ -13,11 +13,12 @@ const theme = createMuiTheme({
     }
 });
 
-class Review extends Component {
+class Submit extends Component {
 
     handleClick = () => {
         console.log('clicked next!')
-        this.props.history.push('/submit')
+        this.props.dispatch({type:'RESET_FEEDBACK'})
+        this.props.history.push('/')
     }
 
     render() {
@@ -25,23 +26,11 @@ class Review extends Component {
             <>
                 <MuiThemeProvider theme={theme}>
                     <div className="component">
-                        <h2>Review Your Feedback</h2>
+                        <h2>Thank you!</h2>
                     </div>
-                    <div className="summary">
-                       Feelings: {this.props.reduxStore.feedbackReducer.feeling}
-                       <br></br>
-                       <br></br>
-                        Understanding: {this.props.reduxStore.feedbackReducer.understanding}
-                       <br></br>
-                       <br></br>
-                        Support: {this.props.reduxStore.feedbackReducer.support}
-                       <br></br>
-                        <br></br>
-                        Comments: {this.props.reduxStore.feedbackReducer.comments}
-                        </div>
-                        <div className="component">
+                    <div className="component">
                         <Button className="btn" variant="contained" color="primary" onClick={this.handleClick}>
-                            Submit
+                            Leave New Feedback
                     </Button>
                     </div>
                 </MuiThemeProvider>
@@ -53,4 +42,4 @@ const mapStateToProps = (reduxStore) => ({
     reduxStore
 })
 
-export default connect(mapStateToProps)(Review);
+export default connect(mapStateToProps)(Submit);

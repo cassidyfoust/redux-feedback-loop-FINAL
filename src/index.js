@@ -33,6 +33,14 @@ const feedbackReducer = (state = {
             comments: action.payload
         }
     }
+    else if (action.type === 'RESET_FEEDBACK') {
+        state = {
+            feeling: 0,
+            understanding: 0,
+            support: 0,
+            comments: ''
+        }
+    }
     return state;
 }
 
